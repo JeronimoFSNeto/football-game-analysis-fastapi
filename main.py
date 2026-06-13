@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-app = FastAPI(title="Football Game Analysis API")
+app = FastAPI(title="Sonar AI — Inteligência Esportiva")
 
 DEFAULT_MODEL = os.environ.get("LLM_MODEL", "gpt-4o-mini")
 LLM_TIMEOUT_SECONDS = float(os.environ.get("LLM_TIMEOUT_SECONDS", "20"))
@@ -71,6 +71,9 @@ async def analyze_match(request: AnalysisRequest):
         raise HTTPException(status_code=502, detail=f"LLM error: {exc}")
 
     return {"match": request.match, "analysis": result, "model": DEFAULT_MODEL}
+
+from sonar_ai.router import router as sonar_ai_router
+app.include_router(sonar_ai_router)
 
 if __name__ == "__main__":
     import uvicorn
