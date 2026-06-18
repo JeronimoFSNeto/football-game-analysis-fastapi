@@ -6,7 +6,8 @@ from .schemas import SonarNarrativeRequest
 SPORT_KEYWORDS = {
     "basquete": ["nba", "basquete", "basketball", "nbb", "euroleague"],
     "tenis": ["tênis", "tenis", "atp", "wta", "grand slam"],
-    "futebol_americano": ["nfl", "super bowl", "futebol americano"],
+    "futebol_americano": ["nfl", "super bowl", "futebol americano", "american football"],
+    "beisebol": ["mlb", "beisebol", "baseball", "world series"],
 }
 
 
@@ -23,6 +24,7 @@ SPORT_CONTEXT = {
     "basquete": "Foco em pontos, rebotes, assistências, aproveitamento de arremessos, turnovers.",
     "tenis": "Foco em games, sets, pontos de quebra, aproveitamento no primeiro serviço, erros não-forçados.",
     "futebol_americano": "Foco em touchdowns, jardas, turnovers, terceiras descidas, field goals.",
+    "beisebol": "Foco em ERA, batting average, home runs, RBI, strikeouts, ERA do arremessador.",
 }
 
 
