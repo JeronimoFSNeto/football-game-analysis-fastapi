@@ -27,13 +27,15 @@ pytest -q                         # run tests
 - `llm-orchestrator` - private git package (git+https...). Required for `/analyze` endpoint.
 - Requires `OPENAI_API_KEY` in `.env`.
 
-## Configuration (`.env`)
-```env
-OPENAI_API_KEY=sk-...
-LLM_MODEL=gpt-4o-mini
-LLM_TIMEOUT_SECONDS=20
-PORT=8000
-```
+## Env Files
+
+**A IA deve ler `.env.example`, NUNCA `.env`.** O `.env` contém a `OPENAI_API_KEY` real e não deve ser exposto.
+
+Carregamento (em ordem): `.env` → `.env.local` (sobrescreve)
+
+## Configuration
+
+See `.env.example` and `.env.local.example` for all available vars.
 
 ## Gotchas
 - LLM calls have a timeout (`anyio.fail_after`). Returns 504 on timeout, 502 on LLM error.
